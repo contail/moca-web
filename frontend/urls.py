@@ -6,5 +6,5 @@ from video.views import VideoView
 
 urlpatterns = [
     path('', main_index, name='main_index'),
-    path('video/', VideoView),
+    path('video', VideoView),
 ]

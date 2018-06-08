@@ -12,9 +12,18 @@ from video.serializers import VideoSerializer
 def VideoView(req):
     if req.method == 'GET':
         # video = get_object_or_404(Video)
+        VIDEO_COUNT_PER_PAGE = 3
+        page = int(req.GET.get('page', 1))
         video = Video.objects.all()
-        serializer = VideoSerializer(video, many=True)
-        return render(req, 'admin_ss/video/list.html', {"videos" : serializer.data})
+        start_page = page - 1
+        total_page = video.count()
+        videos = video[start_page * VIDEO_COUNT_PER_PAGE : (start_page + 1) * VIDEO_COUNT_PER_PAGE]
+        pager = {}
+        pager['current'] = page
+        pager['per_page'] = VIDEO_COUNT_PER_PAGE
+        pager['total_page'] = total_page + VIDEO_COUNT_PER_PAGE
+        serializer = VideoSerializer(videos, many=True)
+        return render(req, 'admin_templates/video/list.html', {"videos" : serializer.data, 'page': page,'pager': pager})
 
 
 
