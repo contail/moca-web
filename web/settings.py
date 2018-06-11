@@ -187,6 +187,7 @@ PROJECT_ROOT = os.path.abspath(
     os.path.join(os.path.dirname(__file__), ".."),
 )
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'collected_statics')
+VIDEO_ROOT = os.path.join(PROJECT_ROOT, 'video_files')
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
