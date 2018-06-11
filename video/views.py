@@ -7,8 +7,9 @@ from rest_framework.response import Response
 
 from video.models import Video
 from video.serializers import VideoSerializer
-
+import os
 @api_view(['GET', 'POST'])
+#TODO 로컬디렉토리에서 비디오 리스트 불러오기
 def VideoView(req):
     if req.method == 'GET':
         # video = get_object_or_404(Video)
@@ -27,3 +28,11 @@ def VideoView(req):
 
 
 
+def search(dirname):
+    video_list = []
+    filenames = os.listdir(dirname)
+    for filename in filenames:
+        full_filename = os.path.join(dirname, filename)
+        ext = os.path.splitext(full_filename)[-1]
+        if ext == '.mp4':
+            video_list.append(full_filename)
