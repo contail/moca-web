@@ -45,5 +45,4 @@ urlpatterns.append(staticfiles_short_urlpatterns('bs3', document_root=os.path.jo
 urlpatterns.append(staticfiles_short_urlpatterns('js', document_root=os.path.join(settings.STATIC_ROOT, 'js')))
 urlpatterns.append(staticfiles_short_urlpatterns('bucket-ico-fonts', document_root=os.path.join(settings.STATIC_ROOT, 'bucket-ico-fonts')))
 urlpatterns.append(staticfiles_short_urlpatterns('static', document_root=settings.STATIC_ROOT))
-print (settings.VIDEO_ROOT, "====================")
 urlpatterns.append(staticfiles_short_urlpatterns('video_files', document_root=settings.VIDEO_ROOT))
