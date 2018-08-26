@@ -8,8 +8,3 @@ from rest_framework.decorators import api_view
 def main_index(req):
     return render(req, 'admin_templates/index.html', {})
 
-@api_view(['GET'])
-def get_video_list(req):
-
-    return render('')
-
