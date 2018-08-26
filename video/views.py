@@ -32,7 +32,7 @@ def VideoView_v2(req):
     if req.method == 'GET':
         VIDEO_COUNT_PER_PAGE = 1
         page = int(req.GET.get('page', 1))
-        path = '/Users/contail/Projects/moca-web/moca-web/video_files'
+        path = '/Users/contail/Projects/moca_web/moca-web/video_files'
         video = search(path)
         start_page = page - 1
         total_page = len(video)
@@ -42,7 +42,6 @@ def VideoView_v2(req):
         pager['per_page'] = VIDEO_COUNT_PER_PAGE
         pager['total_page'] = total_page + VIDEO_COUNT_PER_PAGE
         return render(req, 'admin_templates/video/list.html', {"videos" : videos, 'page': page,'pager': pager})
-
 def search(dirname):
     video_list = []
     filenames = os.listdir(dirname)
